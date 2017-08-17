@@ -4,15 +4,29 @@ body{
 }
 
 .container{
+	opacity: 0;
 	width: 80%;
-	margin: 10% auto;
+	margin: 0 auto;
+	transition: opacity;
 }
+
+.fadeIn{
+	opacity: 1;
+	transition: .5s;
+}
+
+.fadeOut{
+	opacity: 0;
+	transition: .3s;
+}
+
 
 .container .header{
 	text-align: center;
 	color: #fff;
 	box-sizing: border-box;
 	padding: 1em;
+	margin-bottom: 2%;
 }
 
 .container .header .main-title{
@@ -36,9 +50,13 @@ body{
 	box-sizing: border-box;
 	padding: 1em;
 	color: #fff;
+	font-size: 1.5em;
 }
 
-.coins li .fa{
+.coins li span{
+	padding-left: .5em;
+}
+.coins .fa{
 	padding-right: .25em;
 }
 
@@ -54,8 +72,15 @@ body{
 	background-color: #FFC107;
 }
 
-.bitcoin{
+.libra{
 	background-color: #9C27B0;
+}
+
+
+.converter-real{
+	font-size: 2em;
+	color: #fff;
+	text-align: center;
 }
 
 @media(min-width: 758px){

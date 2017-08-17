@@ -1,0 +1,73 @@
+body{
+	background-color: #8BC34A;
+	font-family: 'Saira', sans-serif;
+}
+
+.container{
+	width: 80%;
+	margin: 10% auto;
+}
+
+.container .header{
+	text-align: center;
+	color: #fff;
+	box-sizing: border-box;
+	padding: 1em;
+}
+
+.container .header .main-title{
+	font-size: 2em;
+}
+
+.container .header img{
+	width: 9em;
+}
+
+.coins{
+	width: 100%;
+	background-color: red;
+	display: flex;
+	flex-direction: column;
+}
+
+.coins li{
+	list-style: none;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1em;
+	color: #fff;
+}
+
+.coins li .fa{
+	padding-right: .25em;
+}
+
+.dolar{
+	background-color: #3F51B5;
+}
+
+.euro{
+	background-color: #F44336;
+}
+
+.peso{
+	background-color: #FFC107;
+}
+
+.bitcoin{
+	background-color: #9C27B0;
+}
+
+@media(min-width: 758px){
+	.coins{
+		flex-direction: row;
+	}
+
+	.coins li{
+		width: 25%;
+		height: 10em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

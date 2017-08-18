@@ -2,6 +2,7 @@ html, body{
 	background-color: #8BC34A;
 	font-family: 'Saira', sans-serif;
 	height: 100%;
+	overflow: hidden;
 }
 
 .coins-form{
@@ -95,13 +96,14 @@ html, body{
 	display: flex;
 	flex-direction: column;
 	margin-top: 1em;
+	position: relative;
 }
 
 .converter-real{
 	font-size: 2em;
 	color: #fff;
 	text-align: center;
-	margin-top: 1em;
+	margin: 2em 0;
 }
 
 .botao, .valor-real{
@@ -117,9 +119,58 @@ html, body{
 	color: #fff;
 }
 
+.mensagem-error{
+	position: absolute;
+	top: -2.5em;
+	background-color: #df2029;
+	color: #fff;
+	box-sizing: border-box;
+	padding: .5em;
+	z-index: 1;
+}
+
+.mensagem-error:after{
+	content: "";
+	width: 10px;
+	height: 20px;
+	transform: rotate(45deg);
+	background-color: #df2029;
+	position: absolute;
+	bottom: -.4em;
+	right: .5em;
+}
+
 .results{
 	color: #fff;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: .5em;
+	opacity: 0;
+}
+
+.valor-real-form, .list-results{
+	box-sizing: border-box;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.valor-real-form{
+	background-color: #212121;
+	flex-grow: 2;
+	font-size: 2em;
+	position: relative;
+}
+
+.list-results{
+	background-color: #e71e62;
+	font-size: 1.5em;
+	flex-grow: 3;
+}
+.tooltip-error{
+	opacity: 0;
 }
 
 @media(min-width: 758px){
@@ -140,5 +191,18 @@ html, body{
 	}
 	.valor-real{
 		flex-grow: 3;
+	}
+
+	.results{
+		flex-direction: row;
+	}
+
+	.valor-real-form:after{
+		content: "=";
+		opacity: 1;
+		color: #fff;
+		font-size: 2em;
+		position: absolute;
+		right: -.25em;
 	}
 }

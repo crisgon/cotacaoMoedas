@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
+	<meta name="themer-color" content="#8BC34A">
 	<title>Cotação de Moedas</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -36,14 +37,17 @@
 		<h2 class="converter-real">Converter real</h2>
 		<form action="" class="form-conversao">
 			<input type="number" class="valor-real"  placeholder="R$ 20,00" required>
+			<span class="mensagem-error tooltip-error">Adcione um valor maior que zero.</span>
 			<input type="submit" class="botao" value="Converter">
 		</form>
 	<ul class="results">
 		<span class="valor-real-form"></span>	
-		<li>são equivalentes a <span class="valor-convertido"></span></li>
-		<li>são equivalentes a <span class="valor-convertido"></span></li>
-		<li>são equivalentes a <span class="valor-convertido"></span></li>
-		<li>são equivalentes a <span class="valor-convertido"></span></li>
+		<section class="list-results">
+			<li><span class="valor-convertido"></span>dólares</li>
+			<li><span class="valor-convertido"></span>euros</li>
+			<li><span class="valor-convertido"></span>pesos</li>
+			<li><span class="valor-convertido"></span>libras</li>
+		</section>
 	</ul>
 	</section>
 	</main>

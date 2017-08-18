@@ -42,30 +42,38 @@ conexao.addEventListener("load", function(){
 		libra.innerHTML = cotacoes.libra = conteudoJson.valores.GBP.valor.toFixed(2);
 
 		loading();
-
-
+		document.body.style.overflow = "scroll"; // Libera o scroll quando a pag carrega
 
 		botao.addEventListener("click", function(event){
 			event.preventDefault();
-			console.log(conversoes.realToDolar = conversao(cotacoes.dolar, valorCampo.value));	
-			console.log(conversoes.realToEuro  = conversao(cotacoes.euro, valorCampo.value));	
-			console.log(conversoes.realToPeso  = conversao(cotacoes.peso, valorCampo.value));	
-			console.log(conversoes.realToLibra = conversao(cotacoes.libra, valorCampo.value));	
-
-			valorReal.textContent = valorCampo.value;
-		var i = 0;
-		Object.keys(conversoes).forEach(function(item){ //Percorre todo o objeto
-			 console.log(item + " = " + conversoes[item]);
-			 lis[i].querySelector(".valor-convertido").textContent = conversoes[item];
-			 i++;
-			})
-	});
+			if(!validaForm(valorCampo.value)){
+				console.log(conversoes.realToDolar = conversao(cotacoes.dolar, valorCampo.value));	
+				console.log(conversoes.realToEuro  = conversao(cotacoes.euro, valorCampo.value));	
+				console.log(conversoes.realToPeso  = conversao(cotacoes.peso, valorCampo.value));	
+				console.log(conversoes.realToLibra = conversao(cotacoes.libra, valorCampo.value));	
 		
+				if(valorCampo.value == 1) {
+					valorReal.textContent = valorCampo.value + " real";
+				}else{
+				 valorReal.textContent = valorCampo.value + " reais";
+				}
+				var i = 0;
+				Object.keys(conversoes).forEach(function(item){ //Percorre todo o objeto
+					 console.log(item + " = " + conversoes[item]);
+					 lis[i].querySelector(".valor-convertido").textContent = conversoes[item] + " ";
+					 i++;
+				});
+				results.classList.add("fadeIn");
+				results.style.opacity = "1";
+				valorCampo.value = "";
+			}
+		});
+
 });
 	conexao.send(); // envia
 
 	function conversao(outraMoeda, real){
-		return (outraMoeda * real).toFixed(2);		
+		return (real / outraMoeda).toFixed(2);		
 	}
 
 
@@ -75,3 +83,15 @@ conexao.addEventListener("load", function(){
 	}
 
 
+	function validaForm(valor){
+		if(valor <= 0){
+			var error = document.querySelector(".mensagem-error");
+			error.classList.remove("tooltip-error");
+			setTimeout(function(){
+				error.classList.add("fadeOut");
+				error.classList.add("tooltip-error");
+			},2000);
+			error.classList.remove("fadeOut");
+			return true;
+		}
+	}

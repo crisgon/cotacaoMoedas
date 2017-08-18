@@ -9,13 +9,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
 </head>
 <body>
-<div class="teste">CARREGANDO</div>
+	<div class="load">
+		<img src="images/load.gif" alt="">
+		<span>Carregando...</span>
+	</div>
 	<main class="container">
 		<header class="header">
 			<img src="images/finance.png" alt="">
 			<h1 class="main-title">Cotação de moedas</h1>
 		</header>
-
+	<section class="coins-form">
 		<ul class="coins">
 			<li class="dolar">
 				<i class="fa fa-usd" aria-hidden="true"></i>Dolar: <span class="valor-dolar"></span>
@@ -31,10 +34,18 @@
 			</li>
 		</ul>
 		<h2 class="converter-real">Converter real</h2>
-		<form action="">
-			<input type="text" class="valor-real" placeholder="R$ 20,00" required>
-			<input type="submit" class="botao">
+		<form action="" class="form-conversao">
+			<input type="number" class="valor-real"  placeholder="R$ 20,00" required>
+			<input type="submit" class="botao" value="Converter">
 		</form>
+	<ul class="results">
+		<span class="valor-real-form"></span>	
+		<li>são equivalentes a <span class="valor-convertido"></span></li>
+		<li>são equivalentes a <span class="valor-convertido"></span></li>
+		<li>são equivalentes a <span class="valor-convertido"></span></li>
+		<li>são equivalentes a <span class="valor-convertido"></span></li>
+	</ul>
+	</section>
 	</main>
 	<script src="https://use.fontawesome.com/3a8d059f5c.js"></script>
 	<script src="js/main.js"></script>

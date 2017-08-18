@@ -1,4 +1,4 @@
-var $ = function(name){
+var $ = function(name){ //Função para diminuir a escrita do querySelector
 	return document.querySelector(name);
 };
 
@@ -21,6 +21,7 @@ var cotacoes = {
 	libra: undefined
 }
 
+//Cria objeto que receberá os valores convertidos
 var conversoes = {
 	realToDolar: undefined,
 	realToEuro: undefined,
@@ -45,12 +46,12 @@ conexao.addEventListener("load", function(){
 		document.body.style.overflow = "scroll"; // Libera o scroll quando a pag carrega
 
 		botao.addEventListener("click", function(event){
-			event.preventDefault();
+			event.preventDefault(); //Evita que a pag seja carregada ao clicar no botão
 			if(!validaForm(valorCampo.value)){
-				console.log(conversoes.realToDolar = conversao(cotacoes.dolar, valorCampo.value));	
-				console.log(conversoes.realToEuro  = conversao(cotacoes.euro, valorCampo.value));	
-				console.log(conversoes.realToPeso  = conversao(cotacoes.peso, valorCampo.value));	
-				console.log(conversoes.realToLibra = conversao(cotacoes.libra, valorCampo.value));	
+				conversoes.realToDolar = conversao(cotacoes.dolar, valorCampo.value);	
+				conversoes.realToEuro  = conversao(cotacoes.euro, valorCampo.value);	
+				conversoes.realToPeso  = conversao(cotacoes.peso, valorCampo.value);	
+				conversoes.realToLibra = conversao(cotacoes.libra, valorCampo.value);	
 		
 				if(valorCampo.value == 1) {
 					valorReal.textContent = valorCampo.value + " real";
@@ -63,26 +64,28 @@ conexao.addEventListener("load", function(){
 					 lis[i].querySelector(".valor-convertido").textContent = conversoes[item] + " ";
 					 i++;
 				});
-				results.classList.add("fadeIn");
+				//Mostra os resultados apenas quando o usuário inserir um valor válido
+				results.classList.add("fadeIn"); 
 				results.style.opacity = "1";
-				valorCampo.value = "";
+				valorCampo.value = ""; // Limpa o campo
 			}
 		});
 
 });
 	conexao.send(); // envia
 
+	//Faz a conversão das moedas
 	function conversao(outraMoeda, real){
 		return (real / outraMoeda).toFixed(2);		
 	}
 
-
+	//Tela de carregamento
 	function loading(){
 		load.classList.add("fadeOut");
 		coinsForm.classList.add("fadeIn");
 	}
 
-
+	//Validação do formulário
 	function validaForm(valor){
 		if(valor <= 0){
 			var error = document.querySelector(".mensagem-error");
